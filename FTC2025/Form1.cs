@@ -1,9 +1,10 @@
+using CustomDriverStation;
 using SharpDX.DirectInput;
 namespace FTC2025
 {
     public partial class Form1 : Form
     {
-        private JoystickService joystickService = new JoystickService();    
+        private JoystickService joystickService = new JoystickService();
         Joystick joystick;
         bool enabled = false;
 
@@ -17,6 +18,14 @@ namespace FTC2025
         private void HandleJoystickFunction(JoystickProperties joystick, int value)
         {
             UpdateJoystickDisplay(joystick, value);
+            if (joystick == JoystickProperties.LeftJoystickY)
+            {
+                Robot.GetRobot().DriveLeftSide(value);
+            }
+            if (joystick == JoystickProperties.RightJoystickY)
+            {
+                Robot.GetRobot().DriveRightSide(value);
+            }
         }
 
         private void UpdateJoystickDisplay(JoystickProperties joystick, int value)
@@ -24,18 +33,38 @@ namespace FTC2025
             if (joystick == JoystickProperties.LeftJoystickX)
             {
                 UpdateLabel(LeftJoystickXValue, value.ToString());
-            } 
+            }
             else if (joystick == JoystickProperties.LeftJoystickY)
             {
                 UpdateLabel(LeftJoystickYValue, value.ToString());
-            } 
-            else if (joystick == JoystickProperties.RightJoystickX) 
+            }
+            else if (joystick == JoystickProperties.RightJoystickX)
             {
                 UpdateLabel(RightJoystickXValue, value.ToString());
             }
             else if (joystick == JoystickProperties.RightJoystickY)
             {
                 UpdateLabel(RightJoystickYValue, value.ToString());
+            }
+        }
+
+        private void UpdateButtonDisplay(JoystickProperties button, bool value)
+        {
+            if (button == JoystickProperties.Button1)
+            {
+                UpdateLabel(ButtonOneValue, value.ToString());
+            }
+            if (button == JoystickProperties.Button2)
+            {
+                UpdateLabel(ButtonTwoValue, value.ToString());
+            }
+            if (button == JoystickProperties.Button3)
+            {
+                UpdateLabel(ButtonThreeValue, value.ToString());
+            }
+            if (button == JoystickProperties.Button4)
+            {
+                UpdateLabel(ButtonFourValue, value.ToString());
             }
         }
 
@@ -59,9 +88,9 @@ namespace FTC2025
             }
         }
 
-        private void JoystickButtonChanged(JoystickProperties button, bool newState)
+        private void JoystickButtonChanged(JoystickProperties button, bool state)
         {
-            throw new NotImplementedException();
+            UpdateButtonDisplay(button, state);
         }
 
         private void enable_Click(object sender, EventArgs e)

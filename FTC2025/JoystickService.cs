@@ -9,7 +9,7 @@ namespace FTC2025
 {
     internal class JoystickService
     {
-        public delegate void ButtonChangedHandler(JoystickProperties button, bool newState);
+        public delegate void ButtonChangedHandler(JoystickProperties button, bool state);
         public delegate void JoystickChangedHandler(JoystickProperties joystick, int value);
 
 
@@ -68,29 +68,52 @@ namespace FTC2025
             Task.Run(() =>
             {
                 //your polling loop
-                while(true)
+                int[] previousJoystickStates = new int[4] { int.MinValue, int.MinValue, int.MinValue, int.MinValue };
+
+                while (true)
                 {
                     joystick.Poll();
                     var datas = joystick.GetBufferedData();
                     var joystickState = joystick.GetCurrentState();
-                    
 
-                    if (joystickState.X > -1)
+                    // Sticks
+                    if (joystickState.X > -1 && joystickState.X != previousJoystickStates[0])
                     {
                         JoystickChanged?.Invoke(JoystickProperties.LeftJoystickX, Convert16BitToStandard(joystickState.X));
+                        previousJoystickStates[0] = joystickState.X;
                     }
-                    if (joystickState.Y > -1)
+                    if (joystickState.Y > -1 && joystickState.Y != previousJoystickStates[1])
                     {
                         JoystickChanged?.Invoke(JoystickProperties.LeftJoystickY, -Convert16BitToStandard(joystickState.Y));
+                        previousJoystickStates[1] = joystickState.Y;
                     }
-                    if (joystickState.Z > -1) 
+                    if (joystickState.Z > -1 && joystickState.Z != previousJoystickStates[2])
                     {
                         JoystickChanged?.Invoke(JoystickProperties.RightJoystickX, Convert16BitToStandard(joystickState.Z));
+                        previousJoystickStates[2] = joystickState.Z;
                     }
-                    if (joystickState.RotationZ > -1)
+                    if (joystickState.RotationZ > -1 && joystickState.RotationZ != previousJoystickStates[3])
                     {
                         JoystickChanged?.Invoke(JoystickProperties.RightJoystickY, Convert16BitToStandard(joystickState.RotationZ));
+                        previousJoystickStates[3] = joystickState.RotationZ;
+                    }
 
+                    // Buttons
+                    if (joystickState.Buttons[0])
+                    {
+                        ButtonChanged?.Invoke(JoystickProperties.Button1, joystickState.Buttons[0]);
+                    }
+                    if (joystickState.Buttons[1])
+                    {
+                        ButtonChanged?.Invoke(JoystickProperties.Button2, joystickState.Buttons[1]);
+                    }
+                    if (joystickState.Buttons[2])
+                    {
+                        ButtonChanged?.Invoke(JoystickProperties.Button3, joystickState.Buttons[2]);
+                    }
+                    if (joystickState.Buttons[3])
+                    {
+                        ButtonChanged?.Invoke(JoystickProperties.Button4, joystickState.Buttons[3]);
                     }
                 }
             });
