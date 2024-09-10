@@ -1,59 +1,69 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using WebSocketSharp;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-using FTC2025;
 
-namespace CustomDriverStation
+internal class SocketService
 {
-    internal class SocketService
+    private static IPEndPoint ipEndPoint;
+    private static Socket client;
+
+    private SocketService()
     {
-        private static WebSocket ws;
-        private static SocketService instance;
-        public SocketService() 
+        ipEndPoint = new IPEndPoint(IPAddress.Parse("192.168.5.144"), 3000);
+    }
+
+    public static async Task<SocketService> CreateAsync()
+    {
+        var service = new SocketService();
+        await service.init();
+        return service;
+    }
+
+    public static async void SendCommand(string command)
+    {
+        if (client == null || !client.Connected)
         {
-            init();
+            return;
         }
 
-        public void init()
+        var messageBytes = Encoding.UTF8.GetBytes(command);
+
+        try
         {
-            using (var ws = new WebSocket("ws://your_ESP32_IP:81"))
-            {
-                ws.OnMessage += (sender, e) =>
-                {
-                    ProcessMessage(e.Data);
-                };
-
-                ws.Connect();
-                ws.Send("INIT");
-                Console.ReadKey(true);
-            }
+            await client.SendAsync(messageBytes, SocketFlags.None);
         }
-
-        public static void SendCommand(string command)
+        catch (Exception)
         {
-            ws.Send(command);
+            // Handle exceptions if needed
         }
+    }
 
-        public static SocketService GetSocketService()
+    private async Task init()
+    {
+        try
         {
-            if (instance == null)
-            {
-                instance = new SocketService();
-            }
-            return instance;
-        }
+            client = new Socket(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            await client.ConnectAsync(ipEndPoint);
 
-        public void ProcessMessage(string command)
+            var message = "INIT";
+            var messageBytes = Encoding.UTF8.GetBytes(message);
+
+            await client.SendAsync(messageBytes, SocketFlags.None);
+        }
+        catch (Exception)
         {
-            // Should be lift motor, fldrive used as placeholder
-            if (command.StartsWith("LME")) 
-            {
-                Robot.GetRobot().GetMotor(DrivetrainMotors.FrontLeftDrive).SetEncoderCount(int.Parse(command.Substring(3)));
-            }
+            // Handle exceptions if needed
         }
+    }
 
+    public void Close()
+    {
+        if (client != null && client.Connected)
+        {
+            client.Shutdown(SocketShutdown.Both);
+            client.Close();
+        }
     }
 }

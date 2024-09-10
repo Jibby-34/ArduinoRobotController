@@ -49,14 +49,14 @@ namespace CustomDriverStation
 
         public void DriveLeftSide(int speed)
         {
-            frontLeftDriveMotor.SetSpeed(frontLeftDriveMotor.ConvertStickScaleToStandard(speed));
-            backLeftDriveMotor.SetSpeed(frontRightDriveMotor.ConvertStickScaleToStandard(speed));
+            frontLeftDriveMotor.SetSpeed(Motor.ConvertStickScaleToStandard(speed));
+            backLeftDriveMotor.SetSpeed(Motor.ConvertStickScaleToStandard(speed));
         }
 
         public void DriveRightSide(int speed)
         {
-            frontRightDriveMotor.SetSpeed(frontLeftDriveMotor.ConvertStickScaleToStandard(speed));
-            backRightDriveMotor.SetSpeed(frontRightDriveMotor.ConvertStickScaleToStandard(speed));
+            frontRightDriveMotor.SetSpeed(Motor.ConvertStickScaleToStandard(speed));
+            backRightDriveMotor.SetSpeed(Motor.ConvertStickScaleToStandard(speed));
         }
     }
 

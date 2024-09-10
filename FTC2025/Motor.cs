@@ -65,7 +65,7 @@ namespace CustomDriverStation
             return encoderCount;
         }
 
-        public int ConvertStickScaleToStandard(int stickValue)
+        public static int ConvertStickScaleToStandard(int stickValue)
         {
             return ((stickValue + 100) * 1000) / 200;
         }

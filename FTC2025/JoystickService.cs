@@ -99,22 +99,14 @@ namespace FTC2025
                     }
 
                     // Buttons
-                    if (joystickState.Buttons[0])
-                    {
-                        ButtonChanged?.Invoke(JoystickProperties.Button1, joystickState.Buttons[0]);
-                    }
-                    if (joystickState.Buttons[1])
-                    {
-                        ButtonChanged?.Invoke(JoystickProperties.Button2, joystickState.Buttons[1]);
-                    }
-                    if (joystickState.Buttons[2])
-                    {
-                        ButtonChanged?.Invoke(JoystickProperties.Button3, joystickState.Buttons[2]);
-                    }
-                    if (joystickState.Buttons[3])
-                    {
-                        ButtonChanged?.Invoke(JoystickProperties.Button4, joystickState.Buttons[3]);
-                    }
+                    ButtonChanged?.Invoke(JoystickProperties.Button1, joystickState.Buttons[0]);
+                    
+                    ButtonChanged?.Invoke(JoystickProperties.Button2, joystickState.Buttons[1]);
+      
+                    ButtonChanged?.Invoke(JoystickProperties.Button3, joystickState.Buttons[2]);
+ 
+                    ButtonChanged?.Invoke(JoystickProperties.Button4, joystickState.Buttons[3]);
+                    
                 }
             });
         }
