@@ -5,6 +5,7 @@ namespace FTC2025
     public partial class Form1 : Form
     {
         private JoystickService joystickService = new JoystickService();
+        private SocketService socketService = new SocketService();
         Joystick joystick;
         bool enabled = false;
 
@@ -13,6 +14,7 @@ namespace FTC2025
             InitializeComponent();
             joystickService.ButtonChanged += JoystickButtonChanged;
             joystickService.JoystickChanged += HandleJoystickFunction;
+            socketService.MessageReceived += HandleMessage;
             this.Load += async (sender, e) => await InitializeSocketServiceAsync();
         }
 
@@ -29,10 +31,15 @@ namespace FTC2025
             {
                 Robot.GetRobot().DriveLeftSide(value);
             }
-            if (joystick == JoystickProperties.RightJoystickY)
+            if (joystick == JoystickProperties.RightJoystickY)  
             {
                 Robot.GetRobot().DriveRightSide(value);
             }
+        }
+
+        private void HandleMessage(string response)
+        {
+            UpdateTextBox(statusBox, "Message received: " + response);
         }
 
         private void UpdateJoystickDisplay(JoystickProperties joystick, int value)

@@ -1,69 +1,58 @@
-﻿using System;
+﻿using FTC2025;
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using static FTC2025.JoystickService;
 
 internal class SocketService
 {
     private static IPEndPoint ipEndPoint;
-    private static Socket client;
+    private static Socket handler;
 
-    private SocketService()
+    public delegate void MessageReceivedHandler(string message);
+
+    public event MessageReceivedHandler MessageReceived;
+
+
+    public SocketService()
     {
-        ipEndPoint = new IPEndPoint(IPAddress.Parse("192.168.5.144"), 3000);
+        ipEndPoint = new IPEndPoint(IPAddress.Parse("192.168.5.122"), 3000);
     }
 
-    public static async Task<SocketService> CreateAsync()
+    public static async Task<Socket> CreateAsync()
     {
-        var service = new SocketService();
-        await service.init();
-        return service;
+        using Socket listener = new(
+            ipEndPoint.AddressFamily,
+            SocketType.Stream,
+            ProtocolType.Tcp);
+
+        listener.Bind(ipEndPoint);
+        listener.Listen(100);
+
+
+        handler = await listener.AcceptAsync();
+
+        return listener;
     }
 
     public static async void SendCommand(string command)
     {
-        if (client == null || !client.Connected)
-        {
-            return;
-        }
-
-        var messageBytes = Encoding.UTF8.GetBytes(command);
-
-        try
-        {
-            await client.SendAsync(messageBytes, SocketFlags.None);
-        }
-        catch (Exception)
-        {
-            // Handle exceptions if needed
-        }
+        
     }
 
-    private async Task init()
+    public async void Listen()
     {
-        try
+        await Task.Run(async () =>
         {
-            client = new Socket(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-            await client.ConnectAsync(ipEndPoint);
-
-            var message = "INIT";
-            var messageBytes = Encoding.UTF8.GetBytes(message);
-
-            await client.SendAsync(messageBytes, SocketFlags.None);
-        }
-        catch (Exception)
-        {
-            // Handle exceptions if needed
-        }
-    }
-
-    public void Close()
-    {
-        if (client != null && client.Connected)
-        {
-            client.Shutdown(SocketShutdown.Both);
-            client.Close();
-        }
+            var buffer = new byte[1_024];
+            var received = await handler.ReceiveAsync(buffer, SocketFlags.None);
+            var response = Encoding.UTF8.GetString(buffer, 0, received);
+            if (response != null)
+            {
+                MessageReceived?.Invoke(response);
+            }
+        });
     }
 }
