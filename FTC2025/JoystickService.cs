@@ -9,6 +9,8 @@ namespace FTC2025
 {
     internal class JoystickService
     {
+        private Form1 form;
+
         public delegate void ButtonChangedHandler(JoystickProperties button, bool state);
         public delegate void JoystickChangedHandler(JoystickProperties joystick, int value);
 
@@ -17,9 +19,13 @@ namespace FTC2025
         public event ButtonChangedHandler ButtonChanged;
         public event JoystickChangedHandler JoystickChanged;
 
+        private bool isPolling = false;
+
         public JoystickService() 
         {
             init();
+            form = Form1.getForm();
+            form.Enabled += enableHandler;
         }
 
         public void init()
@@ -63,14 +69,25 @@ namespace FTC2025
             StartPolling();
         }
 
+        public void enableHandler(bool state)
+        {
+            if (state && !isPolling)
+            {
+                StartPolling();
+            } else if (!state)
+            {
+                isPolling = false;
+            }
+        }
+
         public void StartPolling()
         {
+            isPolling = true;
             Task.Run(() =>
             {
-                //your polling loop
                 int[] previousJoystickStates = new int[4] { int.MinValue, int.MinValue, int.MinValue, int.MinValue };
 
-                while (true)
+                while (isPolling)
                 {
                     joystick.Poll();
                     var datas = joystick.GetBufferedData();
@@ -100,16 +117,13 @@ namespace FTC2025
 
                     // Buttons
                     ButtonChanged?.Invoke(JoystickProperties.Button1, joystickState.Buttons[0]);
-                    
                     ButtonChanged?.Invoke(JoystickProperties.Button2, joystickState.Buttons[1]);
-      
                     ButtonChanged?.Invoke(JoystickProperties.Button3, joystickState.Buttons[2]);
- 
                     ButtonChanged?.Invoke(JoystickProperties.Button4, joystickState.Buttons[3]);
-                    
                 }
             });
         }
+
 
         public int Convert16BitToStandard(int value)
         {

@@ -1,17 +1,26 @@
 using CustomDriverStation;
 using SharpDX.DirectInput;
+using System.CodeDom;
+using System.Runtime.CompilerServices;
 namespace FTC2025
 {
     public partial class Form1 : Form
     {
         private JoystickService joystickService = new JoystickService();
         private SocketService socketService = new SocketService();
+        private static Form1 form;
+
+        public delegate void EnableHandler(bool state);
+
+        public event EnableHandler Enabled;
+
         Joystick joystick;
         bool enabled = false;
 
         public Form1()
         {
             InitializeComponent();
+            form = this;
             joystickService.ButtonChanged += JoystickButtonChanged;
             joystickService.JoystickChanged += HandleJoystickFunction;
             socketService.MessageReceived += HandleMessage;
@@ -40,6 +49,11 @@ namespace FTC2025
         private void HandleMessage(string response)
         {
             UpdateTextBox(statusBox, "Message received: " + response);
+        }
+
+        public static Form1 getForm()
+        {
+            return form;
         }
 
         private void UpdateJoystickDisplay(JoystickProperties joystick, int value)
@@ -109,12 +123,12 @@ namespace FTC2025
 
         private void enable_Click(object sender, EventArgs e)
         {
-            enabled = true;
+            enableHandler?.Invoke(true);
         }
 
         private void disable_Click(object sender, EventArgs e)
         {
-            enabled = false;
+            enableHandler?.Invoke(false);
         }
     }
 }
