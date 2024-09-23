@@ -10,10 +10,11 @@ internal class SocketService
 {
     private static IPEndPoint ipEndPoint;
     private static Socket handler;
+    private static Socket listener;
 
     public delegate void MessageReceivedHandler(string message);
 
-    public event MessageReceivedHandler MessageReceived;
+    public static event MessageReceivedHandler MessageReceived;
 
 
     public SocketService()
@@ -23,7 +24,7 @@ internal class SocketService
 
     public static async Task<Socket> CreateAsync()
     {
-        using Socket listener = new(
+        listener = new Socket(
             ipEndPoint.AddressFamily,
             SocketType.Stream,
             ProtocolType.Tcp);
@@ -34,24 +35,40 @@ internal class SocketService
 
         handler = await listener.AcceptAsync();
 
+        Listen();
+
         return listener;
     }
 
     public static async void SendCommand(string command)
     {
-        
+        if (handler == null || !handler.Connected)
+        {
+            return;
+        }
+
+        var messageBytes = Encoding.UTF8.GetBytes(command + "\n");
+        await handler.SendAsync(messageBytes, SocketFlags.None);
     }
 
-    public async void Listen()
+
+    public static async void Listen()
     {
         await Task.Run(async () =>
         {
-            var buffer = new byte[1_024];
-            var received = await handler.ReceiveAsync(buffer, SocketFlags.None);
-            var response = Encoding.UTF8.GetString(buffer, 0, received);
-            if (response != null)
+            while (true)
             {
-                MessageReceived?.Invoke(response);
+                if (listener != null)
+                {
+                    var buffer = new byte[1_024];
+                    var received = await handler.ReceiveAsync(buffer, SocketFlags.None);
+                    var response = Encoding.UTF8.GetString(buffer, 0, received);
+                    if (response != null)
+                    {
+                        SendCommand("Message Received");
+                        MessageReceived?.Invoke(response);
+                    }
+                }
             }
         });
     }

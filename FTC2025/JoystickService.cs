@@ -89,7 +89,7 @@ namespace FTC2025
                     }
                     if (joystickState.Z > -1 && joystickState.Z != previousJoystickStates[2])
                     {
-                        JoystickChanged?.Invoke(JoystickProperties.RightJoystickX, Convert16BitToStandard(joystickState.Z));
+                        JoystickChanged?.Invoke(JoystickProperties.RightJoystickX, -Convert16BitToStandard(joystickState.Z));
                         previousJoystickStates[2] = joystickState.Z;
                     }
                     if (joystickState.RotationZ > -1 && joystickState.RotationZ != previousJoystickStates[3])

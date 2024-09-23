@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace CustomDriverStation
 {
-    internal class Motor
+    internal class DifferentialDriveSection
     {
         double speed;
         double speedPWM;
         double encoderCount;
-        Motors motor;
+        DrivetrainSections side;
 
-        public Motor(Motors motor)
+        public DifferentialDriveSection(DrivetrainSections side)
         {
-            this.motor = motor;
+            this.side = side;
         }
 
         public void SetSpeed(double speed)
@@ -35,18 +35,11 @@ namespace CustomDriverStation
 
         private void SendSpeedCommand(double speedPWM)
         {
-            if (motor == Motors.FrontLeftDrive)
+            if (side == DrivetrainSections.LeftSide)
             {
-                SocketService.SendCommand("FLD" + speedPWM);
-            } else if (motor == Motors.FrontRightDrive) 
-            {
-                SocketService.SendCommand("FRD" + speedPWM);
-            } else if (motor == Motors.BackLeftDrive)
-            {
-                SocketService.SendCommand("BLD" + speedPWM);
-            } else if (motor == Motors.BackRightDrive)
-            {
-                SocketService.SendCommand("BRD" + speedPWM);
+                SocketService.SendCommand("LD" + speedPWM);
+            } else {
+                SocketService.SendCommand("RD" + speedPWM);
             }
         }
 

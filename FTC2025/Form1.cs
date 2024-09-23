@@ -14,7 +14,7 @@ namespace FTC2025
             InitializeComponent();
             joystickService.ButtonChanged += JoystickButtonChanged;
             joystickService.JoystickChanged += HandleJoystickFunction;
-            socketService.MessageReceived += HandleMessage;
+            SocketService.MessageReceived += HandleMessage;
             this.Load += async (sender, e) => await InitializeSocketServiceAsync();
         }
 

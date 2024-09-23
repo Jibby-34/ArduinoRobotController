@@ -8,10 +8,9 @@ namespace CustomDriverStation
 {
     internal class Robot
     {
-        Motor frontLeftDriveMotor = new Motor(DrivetrainMotors.FrontLeftDrive);
-        Motor frontRightDriveMotor = new Motor(DrivetrainMotors.FrontRightDrive);
-        Motor backLeftDriveMotor = new Motor(DrivetrainMotors.BackLeftDrive);
-        Motor backRightDriveMotor = new Motor(DrivetrainMotors.BackRightDrive);
+        DifferentialDriveSection leftSide = new DifferentialDriveSection(DrivetrainSections.LeftSide);
+        DifferentialDriveSection rightSide = new DifferentialDriveSection(DrivetrainSections.RightSide);
+
 
 
         private static Robot instance;
@@ -30,37 +29,34 @@ namespace CustomDriverStation
             return instance;
         }
 
-        public Motor GetMotor(DrivetrainMotors motor)
+        public DifferentialDriveSection GetSide(DrivetrainSections side)
         {
-            if (motor == DrivetrainMotors.FrontLeftDrive)
+            if (side == DrivetrainSections.LeftSide)
             {
-                return frontLeftDriveMotor;
-            } else if (motor == DrivetrainMotors.FrontRightDrive)
-            {
-                return frontRightDriveMotor;
-            } else if (motor == DrivetrainMotors.BackLeftDrive)
-            {
-                return backLeftDriveMotor;
-            } else
-            {
-                return backRightDriveMotor;
-            }
+                return leftSide;
+            } else {
+                return rightSide;
+            } 
         }
 
         public void DriveLeftSide(int speed)
         {
-            frontLeftDriveMotor.SetSpeed(Motor.ConvertStickScaleToStandard(speed));
-            backLeftDriveMotor.SetSpeed(Motor.ConvertStickScaleToStandard(speed));
+            leftSide.SetSpeedPWM(DifferentialDriveSection.ConvertStickScaleToStandard(speed));
         }
 
         public void DriveRightSide(int speed)
         {
-            frontRightDriveMotor.SetSpeed(Motor.ConvertStickScaleToStandard(speed));
-            backRightDriveMotor.SetSpeed(Motor.ConvertStickScaleToStandard(speed));
+            rightSide.SetSpeedPWM(DifferentialDriveSection.ConvertStickScaleToStandard(speed));
         }
     }
 
-    public enum DrivetrainMotors
+    public enum DrivetrainSections
+    {
+        LeftSide,
+        RightSide
+    }
+
+    public enum Motors
     {
         FrontLeftDrive,
         FrontRightDrive,
