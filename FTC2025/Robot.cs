@@ -10,8 +10,7 @@ namespace CustomDriverStation
     {
         DifferentialDriveSection leftSide = new DifferentialDriveSection(DrivetrainSections.LeftSide);
         DifferentialDriveSection rightSide = new DifferentialDriveSection(DrivetrainSections.RightSide);
-
-
+        Elevator elevator = new Elevator();
 
         private static Robot instance;
 
@@ -47,6 +46,11 @@ namespace CustomDriverStation
         public void DriveRightSide(int speed)
         {
             rightSide.SetSpeedPWM(DifferentialDriveSection.ConvertStickScaleToStandard(-speed));
+        }
+
+        public void DriveElevator(LiftDirections direction)
+        {
+            elevator.SetDirection(direction);
         }
     }
 

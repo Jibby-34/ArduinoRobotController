@@ -12,7 +12,7 @@ namespace FTC2025
         public Form1()
         {
             InitializeComponent();
-            joystickService.ButtonChanged += JoystickButtonChanged;
+            joystickService.ButtonChanged += HandleButtonFunction;
             joystickService.JoystickChanged += HandleJoystickFunction;
             SocketService.MessageReceived += HandleMessage;
             this.Load += async (sender, e) => await InitializeSocketServiceAsync();
@@ -102,9 +102,25 @@ namespace FTC2025
             }
         }
 
-        private void JoystickButtonChanged(JoystickProperties button, bool state)
+        private void HandleButtonFunction(JoystickProperties button, bool state)
         {
             UpdateButtonDisplay(button, state);
+            if (button == JoystickProperties.Button4 && state == true) 
+            {
+                Robot.GetRobot().DriveElevator(LiftDirections.Up);
+            } else if (button == JoystickProperties.Button2 && state == true)
+            {
+                Robot.GetRobot().DriveElevator(LiftDirections.Down);
+            } else if (button == JoystickProperties.Button1 && state == true)
+            {
+                Robot.GetRobot().DriveElevator(LiftDirections.Stop);
+            } else if (button == JoystickProperties.Button4 && state == false)
+            {
+                Robot.GetRobot().DriveElevator(LiftDirections.Stop);
+            } else if (button == JoystickProperties.Button2 && state == false)
+            {
+                Robot.GetRobot().DriveElevator(LiftDirections.Stop);
+            }
         }
 
         private void enable_Click(object sender, EventArgs e)
