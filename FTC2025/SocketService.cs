@@ -14,7 +14,7 @@ internal class SocketService
 
     public delegate void MessageReceivedHandler(string message);
 
-    public static event MessageReceivedHandler MessageReceived;
+    public static event MessageReceivedHandler? MessageReceived;
 
 
     public SocketService()

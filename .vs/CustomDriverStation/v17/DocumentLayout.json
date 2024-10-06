@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|c:\\users\\gibson\\desktop\\customdriverstation\\ftc2025\\robot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|solutionrelative:ftc2025\\robot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|c:\\users\\gibson\\desktop\\customdriverstation\\ftc2025\\motor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|solutionrelative:ftc2025\\motor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|c:\\users\\gibson\\desktop\\customdriverstation\\ftc2025\\socketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|solutionrelative:ftc2025\\socketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,20 +19,16 @@
       "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|solutionrelative:ftc2025\\joystickservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|c:\\users\\gibson\\desktop\\customdriverstation\\ftc2025\\robot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|solutionrelative:ftc2025\\robot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|c:\\users\\gibson\\desktop\\customdriverstation\\ftc2025\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|solutionrelative:ftc2025\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|c:\\users\\gibson\\desktop\\customdriverstation\\ftc2025\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|solutionrelative:ftc2025\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|c:\\users\\gibson\\desktop\\customdriverstation\\ftc2025\\differentialdrivesection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|solutionrelative:ftc2025\\differentialdrivesection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|c:\\users\\gibson\\desktop\\customdriverstation\\ftc2025\\motor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|solutionrelative:ftc2025\\motor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|c:\\users\\gibson\\desktop\\customdriverstation\\ftc2025\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|solutionrelative:ftc2025\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|FTC2025\\CustomDriverStation.csproj|C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\ftc2025\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -42,93 +46,103 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\Program.cs",
+              "RelativeDocumentMoniker": "FTC2025\\Program.cs",
+              "ToolTip": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\Program.cs",
+              "RelativeToolTip": "FTC2025\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T01:09:44.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "DifferentialDriveSection.cs",
               "DocumentMoniker": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\DifferentialDriveSection.cs",
               "RelativeDocumentMoniker": "FTC2025\\DifferentialDriveSection.cs",
               "ToolTip": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\DifferentialDriveSection.cs",
               "RelativeToolTip": "FTC2025\\DifferentialDriveSection.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAA5wCcAAAA7AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T03:34:57.181Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T03:34:57.181Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\Form1.cs",
               "RelativeDocumentMoniker": "FTC2025\\Form1.cs",
               "ToolTip": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\Form1.cs",
               "RelativeToolTip": "FTC2025\\Form1.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAowBwAAAAzAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-16T02:20:19.846Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Motor.cs",
               "DocumentMoniker": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\Motor.cs",
               "RelativeDocumentMoniker": "FTC2025\\Motor.cs",
               "ToolTip": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\Motor.cs",
               "RelativeToolTip": "FTC2025\\Motor.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAAADQAAAAgAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-09T14:01:21.009Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Robot.cs",
               "DocumentMoniker": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\Robot.cs",
               "RelativeDocumentMoniker": "FTC2025\\Robot.cs",
               "ToolTip": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\Robot.cs",
               "RelativeToolTip": "FTC2025\\Robot.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABiAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAowDAAAABYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-09T13:28:52.699Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "SocketService.cs",
               "DocumentMoniker": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\SocketService.cs",
               "RelativeDocumentMoniker": "FTC2025\\SocketService.cs",
               "ToolTip": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\SocketService.cs",
               "RelativeToolTip": "FTC2025\\SocketService.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAgwDQAAAAAAAAA",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAAD8AAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-09T12:48:46.887Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "JoystickService.cs",
               "DocumentMoniker": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\JoystickService.cs",
               "RelativeDocumentMoniker": "FTC2025\\JoystickService.cs",
               "ToolTip": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\JoystickService.cs",
               "RelativeToolTip": "FTC2025\\JoystickService.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAowFYAAABTAAAA",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAwwFYAAABTAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-08T23:41:53.75Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\Form1.cs",
               "RelativeDocumentMoniker": "FTC2025\\Form1.cs",
               "ToolTip": "C:\\Users\\Gibson\\Desktop\\CustomDriverStation\\FTC2025\\Form1.cs [Design]",
               "RelativeToolTip": "FTC2025\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-09T12:02:31.149Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-09-09T12:02:31.149Z"
             }
           ]
         }

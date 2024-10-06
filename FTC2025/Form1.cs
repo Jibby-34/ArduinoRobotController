@@ -4,7 +4,7 @@ namespace FTC2025
 {
     public partial class Form1 : Form
     {
-        private JoystickService joystickService = new JoystickService();
+        JoystickService joystickService = new JoystickService();
         private SocketService socketService = new SocketService();
         Joystick joystick;
         bool enabled = false;

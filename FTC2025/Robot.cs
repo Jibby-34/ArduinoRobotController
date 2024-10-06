@@ -46,7 +46,7 @@ namespace CustomDriverStation
 
         public void DriveRightSide(int speed)
         {
-            rightSide.SetSpeedPWM(DifferentialDriveSection.ConvertStickScaleToStandard(speed));
+            rightSide.SetSpeedPWM(DifferentialDriveSection.ConvertStickScaleToStandard(-speed));
         }
     }
 
