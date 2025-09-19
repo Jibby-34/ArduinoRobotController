@@ -7,6 +7,7 @@ namespace FTC2025
         JoystickService joystickService = new JoystickService();
         private SocketService socketService = new SocketService();
         Joystick joystick;
+        Robot robot = new Robot();
         bool enabled = false;
 
         public Form1()
@@ -27,14 +28,7 @@ namespace FTC2025
         private void HandleJoystickFunction(JoystickProperties joystick, int value)
         {
             UpdateJoystickDisplay(joystick, value);
-            if (joystick == JoystickProperties.LeftJoystickY)
-            {
-                Robot.GetRobot().DriveLeftSide(value);
-            }
-            if (joystick == JoystickProperties.RightJoystickY)  
-            {
-                Robot.GetRobot().DriveRightSide(value);
-            }
+            robot.ForwardJoystick(joystick, value);
         }
 
         private void HandleMessage(string response)
@@ -105,7 +99,7 @@ namespace FTC2025
         private void HandleButtonFunction(JoystickProperties button, bool state)
         {
             UpdateButtonDisplay(button, state);
-            if (button == JoystickProperties.Button4 && state == true) 
+            /*if (button == JoystickProperties.Button4 && state == true) 
             {
                 Robot.GetRobot().DriveElevator(LiftDirections.Up);
             } else if (button == JoystickProperties.Button2 && state == true)
@@ -120,7 +114,7 @@ namespace FTC2025
             } else if (button == JoystickProperties.Button2 && state == false)
             {
                 Robot.GetRobot().DriveElevator(LiftDirections.Stop);
-            }
+            }*/
         }
 
         private void enable_Click(object sender, EventArgs e)

@@ -35,8 +35,6 @@ internal class SocketService
 
         handler = await listener.AcceptAsync();
 
-        Listen();
-
         return listener;
     }
 
@@ -72,4 +70,6 @@ internal class SocketService
             }
         });
     }
+
+
 }

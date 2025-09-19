@@ -3,20 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FTC2025;
 
 namespace CustomDriverStation
 {
     internal class Robot
     {
-        DifferentialDriveSection leftSide = new DifferentialDriveSection(DrivetrainSections.LeftSide);
-        DifferentialDriveSection rightSide = new DifferentialDriveSection(DrivetrainSections.RightSide);
-        Elevator elevator = new Elevator();
-
+        // Blank robot file: Create each subsystem in this file and use it as a utility 
         private static Robot instance;
+        private Drivetrain drivetrain = new Drivetrain();
 
-        public Robot() 
+        public Robot()
         {
 
+        }
+
+        // BUTTON BINDINGS ARE DONE HERE
+        public void ForwardJoystick(JoystickProperties joystick, int value)
+        {
+            // LEFT JOYSTICK Y -> LEFT DRIVE
+            if (joystick == JoystickProperties.LeftJoystickY)
+            {
+                drivetrain.DriveLeft(value);
+            }
+            // RIGHT JOYSTICK Y -> RIGHT DRIVE
+            else if (joystick == JoystickProperties.RightJoystickY)
+            {
+                drivetrain.DriveRight(value);
+            }
         }
 
         public static Robot GetRobot()
@@ -27,44 +41,5 @@ namespace CustomDriverStation
             }
             return instance;
         }
-
-        public DifferentialDriveSection GetSide(DrivetrainSections side)
-        {
-            if (side == DrivetrainSections.LeftSide)
-            {
-                return leftSide;
-            } else {
-                return rightSide;
-            } 
-        }
-
-        public void DriveLeftSide(int speed)
-        {
-            leftSide.SetSpeedPWM(DifferentialDriveSection.ConvertStickScaleToStandard(speed));
-        }
-
-        public void DriveRightSide(int speed)
-        {
-            rightSide.SetSpeedPWM(DifferentialDriveSection.ConvertStickScaleToStandard(-speed));
-        }
-
-        public void DriveElevator(LiftDirections direction)
-        {
-            elevator.SetDirection(direction);
-        }
-    }
-
-    public enum DrivetrainSections
-    {
-        LeftSide,
-        RightSide
-    }
-
-    public enum Motors
-    {
-        FrontLeftDrive,
-        FrontRightDrive,
-        BackLeftDrive,
-        BackRightDrive
     }
 }

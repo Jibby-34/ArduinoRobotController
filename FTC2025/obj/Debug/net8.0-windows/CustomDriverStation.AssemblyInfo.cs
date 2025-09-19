@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CustomDriverStation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8692df152ae27f4d43c86e36c76f96b464ab00aa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d429adabef1a4f59161a15636d95253d53f1b1cd")]
 [assembly: System.Reflection.AssemblyProductAttribute("CustomDriverStation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CustomDriverStation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
