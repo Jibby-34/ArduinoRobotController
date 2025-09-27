@@ -29,7 +29,7 @@ namespace CustomDriverStation
             // RIGHT JOYSTICK Y -> RIGHT DRIVE
             else if (joystick == JoystickProperties.RightJoystickY)
             {
-                drivetrain.DriveRight(value);
+                drivetrain.DriveRight(-value);
             }
         }
 

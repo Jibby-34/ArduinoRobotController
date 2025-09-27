@@ -1,75 +1,56 @@
-﻿using FTC2025;
-using System;
+﻿using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-using static FTC2025.JoystickService;
 
 internal class SocketService
 {
     private static IPEndPoint ipEndPoint;
-    private static Socket handler;
-    private static Socket listener;
+    private static Socket client;
 
     public delegate void MessageReceivedHandler(string message);
-
     public static event MessageReceivedHandler? MessageReceived;
-
 
     public SocketService()
     {
-        ipEndPoint = new IPEndPoint(IPAddress.Parse("192.168.5.122"), 3000);
+        // ESP8266 SoftAP default IP is 192.168.4.1, port 3333 from Arduino sketch
+        ipEndPoint = new IPEndPoint(IPAddress.Parse("192.168.4.1"), 3333);
     }
 
-    public static async Task<Socket> CreateAsync()
+    public static async Task<Socket> ConnectAsync()
     {
-        listener = new Socket(
-            ipEndPoint.AddressFamily,
-            SocketType.Stream,
-            ProtocolType.Tcp);
-
-        listener.Bind(ipEndPoint);
-        listener.Listen(100);
-
-
-        handler = await listener.AcceptAsync();
-
-        return listener;
+        client = new Socket(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+        await client.ConnectAsync(ipEndPoint);
+        return client;
     }
 
     public static async void SendCommand(string command)
     {
-        if (handler == null || !handler.Connected)
-        {
+        if (client == null || !client.Connected)
             return;
-        }
 
         var messageBytes = Encoding.UTF8.GetBytes(command + "\n");
-        await handler.SendAsync(messageBytes, SocketFlags.None);
+        await client.SendAsync(messageBytes, SocketFlags.None);
     }
-
 
     public static async void Listen()
     {
         await Task.Run(async () =>
         {
+            var buffer = new byte[1024];
             while (true)
             {
-                if (listener != null)
+                if (client != null && client.Connected)
                 {
-                    var buffer = new byte[1_024];
-                    var received = await handler.ReceiveAsync(buffer, SocketFlags.None);
-                    var response = Encoding.UTF8.GetString(buffer, 0, received);
-                    if (response != null)
+                    var received = await client.ReceiveAsync(buffer, SocketFlags.None);
+                    if (received > 0)
                     {
-                        SendCommand("Message Received");
+                        var response = Encoding.UTF8.GetString(buffer, 0, received);
                         MessageReceived?.Invoke(response);
                     }
                 }
             }
         });
     }
-
-
 }

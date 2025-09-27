@@ -21,7 +21,7 @@ namespace FTC2025
 
         private async Task InitializeSocketServiceAsync()
         {
-            var socketService = await SocketService.CreateAsync();
+            var socketService = await SocketService.ConnectAsync();
         }
 
 
