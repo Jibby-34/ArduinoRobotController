@@ -7,38 +7,20 @@ using System.Threading.Tasks;
 namespace CustomDriverStation
 {
     /// <summary>
-    /// Singleton class representing the robot. 
+    /// Static class representing the robot. 
     /// This serves as a base structure for season-specific robot implementations.
     /// Users can extend this class or add motors/components as needed for their robot.
     /// </summary>
-    public class Robot
+    public static class Robot
     {
-        private static Robot instance;
-        private Dictionary<string, Motor> motors;
-
-        private Robot() 
-        {
-            motors = new Dictionary<string, Motor>();
-        }
-
-        /// <summary>
-        /// Gets the singleton instance of the Robot.
-        /// </summary>
-        public static Robot GetRobot()
-        {
-            if (instance == null)
-            {
-                instance = new Robot();
-            }
-            return instance;
-        }
+        private static Dictionary<string, Motor> motors = new Dictionary<string, Motor>();
 
         /// <summary>
         /// Adds a motor to the robot with the specified motor ID.
         /// </summary>
         /// <param name="motorId">The motor identifier</param>
         /// <returns>The created Motor instance</returns>
-        public Motor AddMotor(string motorId)
+        public static Motor AddMotor(string motorId)
         {
             if (!motors.ContainsKey(motorId))
             {
@@ -52,7 +34,7 @@ namespace CustomDriverStation
         /// </summary>
         /// <param name="motorId">The motor identifier</param>
         /// <returns>The Motor instance, or null if not found</returns>
-        public Motor GetMotor(string motorId)
+        public static Motor GetMotor(string motorId)
         {
             return motors.ContainsKey(motorId) ? motors[motorId] : null;
         }
@@ -60,7 +42,7 @@ namespace CustomDriverStation
         /// <summary>
         /// Gets all registered motors.
         /// </summary>
-        public IReadOnlyDictionary<string, Motor> GetAllMotors()
+        public static IReadOnlyDictionary<string, Motor> GetAllMotors()
         {
             return motors;
         }
