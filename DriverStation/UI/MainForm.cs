@@ -9,7 +9,6 @@ namespace CustomDriverStation.UI
     {
         private JoystickService joystickService = new JoystickService();
         private SocketService socketService = new SocketService();
-        private Joystick joystick;
         private bool enabled = false;
 
         public MainForm()
@@ -220,6 +219,20 @@ namespace CustomDriverStation.UI
             {
                 enableButton.BackColor = System.Drawing.Color.FromArgb(80, 80, 80);
                 disableButton.BackColor = System.Drawing.Color.FromArgb(220, 53, 69);
+            }
+        }
+
+        private void reloadController_Click(object sender, EventArgs e)
+        {
+            AppendStatusMessage("Attempting to reconnect controller...");
+            joystickService.Reconnect();
+            if (joystickService.IsConnected)
+            {
+                AppendStatusMessage("Controller reconnected successfully");
+            }
+            else
+            {
+                AppendStatusMessage("Controller not found. Please check connection.");
             }
         }
     }

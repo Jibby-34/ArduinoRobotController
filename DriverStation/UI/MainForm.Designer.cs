@@ -29,6 +29,7 @@
             this.connectionStatusIndicator = new System.Windows.Forms.Panel();
             this.controllerTab = new System.Windows.Forms.TabPage();
             this.controllerPanel = new System.Windows.Forms.Panel();
+            this.reloadControllerButton = new System.Windows.Forms.Button();
             this.buttonGroupBox = new System.Windows.Forms.GroupBox();
             this.button4Value = new System.Windows.Forms.Label();
             this.button3Value = new System.Windows.Forms.Label();
@@ -190,6 +191,7 @@
             // controllerPanel
             // 
             this.controllerPanel.AutoScroll = true;
+            this.controllerPanel.Controls.Add(this.reloadControllerButton);
             this.controllerPanel.Controls.Add(this.buttonGroupBox);
             this.controllerPanel.Controls.Add(this.joystickGroupBox);
             this.controllerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -197,6 +199,21 @@
             this.controllerPanel.Name = "controllerPanel";
             this.controllerPanel.Size = new System.Drawing.Size(302, 674);
             this.controllerPanel.TabIndex = 0;
+            // 
+            // reloadControllerButton
+            // 
+            this.reloadControllerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.reloadControllerButton.FlatAppearance.BorderSize = 0;
+            this.reloadControllerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reloadControllerButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.reloadControllerButton.ForeColor = System.Drawing.Color.White;
+            this.reloadControllerButton.Location = new System.Drawing.Point(10, 420);
+            this.reloadControllerButton.Name = "reloadControllerButton";
+            this.reloadControllerButton.Size = new System.Drawing.Size(280, 45);
+            this.reloadControllerButton.TabIndex = 2;
+            this.reloadControllerButton.Text = "Reload Controller";
+            this.reloadControllerButton.UseVisualStyleBackColor = false;
+            this.reloadControllerButton.Click += new System.EventHandler(this.reloadController_Click);
             // 
             // buttonGroupBox
             // 
@@ -473,6 +490,7 @@
         private System.Windows.Forms.Panel joystickStatusIndicator;
         private System.Windows.Forms.Label joystickStatusLabel;
         private System.Windows.Forms.Panel controllerPanel;
+        private System.Windows.Forms.Button reloadControllerButton;
         private System.Windows.Forms.GroupBox joystickGroupBox;
         private System.Windows.Forms.Label leftJoystickXLabel;
         private System.Windows.Forms.Label leftJoystickXValue;

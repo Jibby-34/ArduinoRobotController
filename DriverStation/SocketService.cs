@@ -12,8 +12,20 @@ internal class SocketService
     public delegate void MessageReceivedHandler(string message);
     public static event MessageReceivedHandler? MessageReceived
     {
-        add { ConnectionManager.MessageReceived += value; }
-        remove { ConnectionManager.MessageReceived -= value; }
+        add 
+        { 
+            if (value != null)
+            {
+                ConnectionManager.MessageReceived += new ConnectionManager.MessageReceivedHandler(value);
+            }
+        }
+        remove 
+        { 
+            if (value != null)
+            {
+                ConnectionManager.MessageReceived -= new ConnectionManager.MessageReceivedHandler(value);
+            }
+        }
     }
 
     public SocketService()

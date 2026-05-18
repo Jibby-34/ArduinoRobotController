@@ -33,6 +33,26 @@ namespace FTC2025
             init();
         }
 
+        /// <summary>
+        /// Attempts to reconnect to the joystick/controller.
+        /// Useful when a controller is plugged in after the application has started.
+        /// </summary>
+        public void Reconnect()
+        {
+            isConnected = false;
+            if (joystick != null)
+            {
+                try
+                {
+                    joystick.Unacquire();
+                    joystick.Dispose();
+                }
+                catch { }
+                joystick = null;
+            }
+            init();
+        }
+
         private void init()
         {
             try
