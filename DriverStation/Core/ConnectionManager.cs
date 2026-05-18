@@ -12,8 +12,7 @@ namespace CustomDriverStation.Core
     public class ConnectionManager
     {
         private static IPEndPoint ipEndPoint;
-        private static Socket handler;
-        private static Socket listener;
+        private static Socket clientSocket;
         private static bool isConnected = false;
         private static bool isEnabled = false;
 
@@ -27,7 +26,7 @@ namespace CustomDriverStation.Core
 
         public ConnectionManager()
         {
-            ipEndPoint = new IPEndPoint(IPAddress.Parse("192.168.5.122"), 3000);
+            ipEndPoint = new IPEndPoint(IPAddress.Parse("192.168.4.1"), 3000);
         }
 
         /// <summary>
@@ -64,39 +63,38 @@ namespace CustomDriverStation.Core
         }
 
         /// <summary>
-        /// Sends stop commands to common motor IDs.
+        /// Sends stop commands to all registered motors.
         /// </summary>
         private static void SendStopCommands()
         {
-            string[] commonMotorIds = { "FLD", "FRD", "BLD", "BRD", "LM1", "IM1" };
-            foreach (var motorId in commonMotorIds)
+            var robot = Robot.GetRobot();
+            var allMotors = robot.GetAllMotors();
+            foreach (var motor in allMotors.Values)
             {
-                SendCommandInternal($"{motorId}0");
+                SendCommandInternal($"{motor.MotorId}0");
             }
         }
 
         /// <summary>
         /// Creates and initializes the socket connection asynchronously.
+        /// Connects to the ESP8266 server in SoftAP mode.
         /// </summary>
         public static async Task<Socket> CreateAsync()
         {
             try
             {
-                listener = new Socket(
+                clientSocket = new Socket(
                     ipEndPoint.AddressFamily,
                     SocketType.Stream,
                     ProtocolType.Tcp);
 
-                listener.Bind(ipEndPoint);
-                listener.Listen(100);
-
-                handler = await listener.AcceptAsync();
+                await clientSocket.ConnectAsync(ipEndPoint);
                 isConnected = true;
                 ConnectionStatusChanged?.Invoke(true);
 
                 Listen();
 
-                return listener;
+                return clientSocket;
             }
             catch (Exception)
             {
@@ -127,7 +125,7 @@ namespace CustomDriverStation.Core
         /// <param name="command">The command string to send</param>
         private static async void SendCommandInternal(string command)
         {
-            if (handler == null || !handler.Connected)
+            if (clientSocket == null || !clientSocket.Connected)
             {
                 return;
             }
@@ -135,7 +133,7 @@ namespace CustomDriverStation.Core
             try
             {
                 var messageBytes = Encoding.UTF8.GetBytes(command + "\n");
-                await handler.SendAsync(messageBytes, SocketFlags.None);
+                await clientSocket.SendAsync(messageBytes, SocketFlags.None);
             }
             catch (Exception)
             {
@@ -155,10 +153,10 @@ namespace CustomDriverStation.Core
                 {
                     try
                     {
-                        if (listener != null && handler != null)
+                        if (clientSocket != null && clientSocket.Connected)
                         {
                             var buffer = new byte[1_024];
-                            var received = await handler.ReceiveAsync(buffer, SocketFlags.None);
+                            var received = await clientSocket.ReceiveAsync(buffer, SocketFlags.None);
                             var response = Encoding.UTF8.GetString(buffer, 0, received);
                             if (!string.IsNullOrEmpty(response))
                             {
