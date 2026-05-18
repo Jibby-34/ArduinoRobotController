@@ -1,0 +1,8 @@
+C:\Users\gdegr\Documents\GitHub\ArduinoRobotController\DriverStation\obj\Debug\net8.0-windows\DriverStation.csproj.AssemblyReference.cache
+C:\Users\gdegr\Documents\GitHub\ArduinoRobotController\DriverStation\obj\Debug\net8.0-windows\CustomDriverStation.UI.MainForm.resources
+C:\Users\gdegr\Documents\GitHub\ArduinoRobotController\DriverStation\obj\Debug\net8.0-windows\DriverStation.csproj.GenerateResource.cache
+C:\Users\gdegr\Documents\GitHub\ArduinoRobotController\DriverStation\obj\Debug\net8.0-windows\DriverStation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gdegr\Documents\GitHub\ArduinoRobotController\DriverStation\obj\Debug\net8.0-windows\DriverStation.AssemblyInfoInputs.cache
+C:\Users\gdegr\Documents\GitHub\ArduinoRobotController\DriverStation\obj\Debug\net8.0-windows\DriverStation.AssemblyInfo.cs
+C:\Users\gdegr\Documents\GitHub\ArduinoRobotController\DriverStation\obj\Debug\net8.0-windows\DriverStation.csproj.CoreCompileInputs.cache
+C:\Users\gdegr\Documents\GitHub\ArduinoRobotController\DriverStation\obj\Debug\net8.0-windows\DriverStation.sourcelink.json

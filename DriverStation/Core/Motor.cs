@@ -7,17 +7,29 @@ using System.Threading.Tasks;
 
 namespace CustomDriverStation
 {
-    internal class Motor
+    /// <summary>
+    /// Represents a motor controller with speed control and encoder feedback capabilities.
+    /// </summary>
+    public class Motor
     {
-        double speed;
-        double speedPWM;
-        double encoderCount;
-        Motors motor;
+        private double speed;
+        private double speedPWM;
+        private double encoderCount;
+        private string motorId;
 
-        public Motor(Motors motor)
+        /// <summary>
+        /// Creates a new Motor instance with the specified motor ID.
+        /// </summary>
+        /// <param name="motorId">The motor identifier (e.g., "FLD", "M01", etc.)</param>
+        public Motor(string motorId)
         {
-            this.motor = motor;
+            this.motorId = motorId;
         }
+
+        /// <summary>
+        /// Gets the motor ID.
+        /// </summary>
+        public string MotorId => motorId;
 
         public void SetSpeed(double speed)
         {
@@ -35,19 +47,7 @@ namespace CustomDriverStation
 
         private void SendSpeedCommand(double speedPWM)
         {
-            if (motor == Motors.FrontLeftDrive)
-            {
-                SocketService.SendCommand("FLD" + speedPWM);
-            } else if (motor == Motors.FrontRightDrive) 
-            {
-                SocketService.SendCommand("FRD" + speedPWM);
-            } else if (motor == Motors.BackLeftDrive)
-            {
-                SocketService.SendCommand("BLD" + speedPWM);
-            } else if (motor == Motors.BackRightDrive)
-            {
-                SocketService.SendCommand("BRD" + speedPWM);
-            }
+            SocketService.SendCommand(motorId + speedPWM);
         }
 
         public double GetSpeed()
