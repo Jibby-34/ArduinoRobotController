@@ -3,8 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|c:\\users\\gdegr\\documents\\github\\arduinorobotcontroller\\driverstation\\core\\motor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|solutionrelative:driverstation\\core\\motor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|c:\\users\\gdegr\\documents\\github\\arduinorobotcontroller\\driverstation\\core\\connectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|solutionrelative:driverstation\\core\\connectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|c:\\users\\gdegr\\documents\\github\\arduinorobotcontroller\\driverstation\\core\\robot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|solutionrelative:driverstation\\core\\robot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|c:\\users\\gdegr\\documents\\github\\arduinorobotcontroller\\driverstation\\input\\joystickservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|solutionrelative:driverstation\\input\\joystickservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|c:\\users\\gdegr\\documents\\github\\arduinorobotcontroller\\driverstation\\core\\ftc2025\\drivetrainsubsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|solutionrelative:driverstation\\core\\ftc2025\\drivetrainsubsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|c:\\users\\gdegr\\documents\\github\\arduinorobotcontroller\\driverstation\\ui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|solutionrelative:driverstation\\ui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\driverstation\\ui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|solutionrelative:driverstation\\ui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|c:\\users\\gdegr\\documents\\github\\arduinorobotcontroller\\driverstation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|solutionrelative:driverstation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|c:\\users\\gdegr\\documents\\github\\arduinorobotcontroller\\driverstation\\socketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C713D6D2-9B12-4A29-A6C1-8D47BB5470DE}|DriverStation\\DriverStation.csproj|solutionrelative:driverstation\\socketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,12 +55,110 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Motor.cs",
+              "DocumentMoniker": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\Core\\Motor.cs",
+              "RelativeDocumentMoniker": "DriverStation\\Core\\Motor.cs",
+              "ToolTip": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\Core\\Motor.cs",
+              "RelativeToolTip": "DriverStation\\Core\\Motor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T00:47:26.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\UI\\MainForm.cs",
+              "RelativeDocumentMoniker": "DriverStation\\UI\\MainForm.cs",
+              "ToolTip": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\UI\\MainForm.cs",
+              "RelativeToolTip": "DriverStation\\UI\\MainForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T00:09:53.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SocketService.cs",
+              "DocumentMoniker": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\SocketService.cs",
+              "RelativeDocumentMoniker": "DriverStation\\SocketService.cs",
+              "ToolTip": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\SocketService.cs",
+              "RelativeToolTip": "DriverStation\\SocketService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T00:08:07.151Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\Program.cs",
+              "RelativeDocumentMoniker": "DriverStation\\Program.cs",
+              "ToolTip": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\Program.cs",
+              "RelativeToolTip": "DriverStation\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T00:08:02.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "JoystickService.cs",
+              "DocumentMoniker": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\Input\\JoystickService.cs",
+              "RelativeDocumentMoniker": "DriverStation\\Input\\JoystickService.cs",
+              "ToolTip": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\Input\\JoystickService.cs",
+              "RelativeToolTip": "DriverStation\\Input\\JoystickService.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T00:07:57.754Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\UI\\MainForm.cs",
+              "RelativeDocumentMoniker": "DriverStation\\UI\\MainForm.cs",
+              "ToolTip": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\UI\\MainForm.cs [Design]",
+              "RelativeToolTip": "DriverStation\\UI\\MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T00:07:55.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DrivetrainSubsystem.cs",
+              "DocumentMoniker": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\Core\\FTC2025\\DrivetrainSubsystem.cs",
+              "RelativeDocumentMoniker": "DriverStation\\Core\\FTC2025\\DrivetrainSubsystem.cs",
+              "ToolTip": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\Core\\FTC2025\\DrivetrainSubsystem.cs",
+              "RelativeToolTip": "DriverStation\\Core\\FTC2025\\DrivetrainSubsystem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T00:00:49.74Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Robot.cs",
+              "DocumentMoniker": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\Core\\Robot.cs",
+              "RelativeDocumentMoniker": "DriverStation\\Core\\Robot.cs",
+              "ToolTip": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\Core\\Robot.cs",
+              "RelativeToolTip": "DriverStation\\Core\\Robot.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAiwCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T23:57:44.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ConnectionManager.cs",
               "DocumentMoniker": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\Core\\ConnectionManager.cs",
               "RelativeDocumentMoniker": "DriverStation\\Core\\ConnectionManager.cs",
               "ToolTip": "C:\\Users\\gdegr\\Documents\\GitHub\\ArduinoRobotController\\DriverStation\\Core\\ConnectionManager.cs",
               "RelativeToolTip": "DriverStation\\Core\\ConnectionManager.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAewEcAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAowEcAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-18T22:49:23.224Z",
               "EditorCaption": ""

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DriverStation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+200e94e985eab968cc0fab35ff5434743ca8bba6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa572f24ac75d7e1018d75776915941a17aec728")]
 [assembly: System.Reflection.AssemblyProductAttribute("DriverStation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DriverStation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

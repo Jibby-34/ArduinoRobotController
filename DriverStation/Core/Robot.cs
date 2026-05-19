@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CustomDriverStation.Input;
+using DriverStation.Core.FTC2025;
+using FTC2025;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +16,14 @@ namespace CustomDriverStation
     /// </summary>
     public static class Robot
     {
-        var controller = new ControllerBindings();
+        // All present motors (must be initialized before subsystems that use it)
+        private static Dictionary<string, Motor> motors = new Dictionary<string, Motor>();
+
+        // Subsystems
+        private static DrivetrainSubsystem drivetrain = new DrivetrainSubsystem();
+
+        // Controller
+        private static ControllerBindings controller = new ControllerBindings();
 
         // BUTTON BINDINGS EXAMPLE
         // var controller = new ControllerBindings();
@@ -39,26 +49,30 @@ namespace CustomDriverStation
         //     isReversed = !isReversed;
         //     intakeMotor.SetSpeed(isReversed ? -0.5 : 0.5);
         // });
-        private static Dictionary<string, Motor> motors = new Dictionary<string, Motor>();
 
-
-        controller.BindContinuousUpdate(() =>
+        public static void SetupController()
+        {
+            controller.BindContinuousUpdate(() =>
             {
-                double leftSpeed = controller.GetAxisNormalized(JoystickProperties.LeftJoystickY);
-                double rightSpeed = controller.GetAxisNormalized(JoystickProperties.RightJoystickY);
-                
-                leftFront.SetSpeed(leftSpeed);
-                leftBack.SetSpeed(leftSpeed);
-                rightFront.SetSpeed(rightSpeed);
-                rightBack.SetSpeed(rightSpeed);
+                double left = controller.GetAxisNormalized(JoystickProperties.LeftJoystickY);
+                double right = controller.GetAxisNormalized(JoystickProperties.RightJoystickY);
+
+                drivetrain.Drive(left, right);
             });
-                    /// <summary>
+        }
+
+        /// <summary>
         /// Adds a motor to the robot with the specified motor ID.
         /// </summary>
         /// <param name="motorId">The motor identifier</param>
         /// <returns>The created Motor instance</returns>
         public static Motor AddMotor(string motorId)
         {
+            if (string.IsNullOrEmpty(motorId))
+            {
+                throw new ArgumentException("Motor ID cannot be null or empty.", nameof(motorId));
+            }
+
             if (!motors.ContainsKey(motorId))
             {
                 motors[motorId] = new Motor(motorId);

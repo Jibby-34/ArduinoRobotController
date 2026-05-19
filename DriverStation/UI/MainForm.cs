@@ -24,7 +24,8 @@ namespace CustomDriverStation.UI
             UpdateConnectionStatus(false);
             UpdateJoystickStatus(joystickService.IsConnected);
             UpdateEnableDisableButtons();
-            
+            Robot.SetupController();
+
             AppendStatusMessage("Driver Station initialized");
             AppendStatusMessage("Robot is DISABLED by default");
         }

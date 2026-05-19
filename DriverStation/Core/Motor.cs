@@ -16,6 +16,12 @@ namespace CustomDriverStation
         private double speedPWM;
         private double encoderCount;
         private string motorId;
+        private DateTime lastCommandTime = DateTime.MinValue;
+        private double lastSentSpeedPWM = double.NaN;
+        private double? pendingSpeedPWM = null;
+        private System.Threading.Timer throttleTimer;
+        private const int COMMAND_THROTTLE_MS = 30;
+        private readonly object lockObject = new object();
 
         /// <summary>
         /// Creates a new Motor instance with the specified motor ID.
@@ -47,7 +53,48 @@ namespace CustomDriverStation
 
         private void SendSpeedCommand(double speedPWM)
         {
-            SocketService.SendCommand(motorId + speedPWM);
+            lock (lockObject)
+            {
+                var now = DateTime.UtcNow;
+                var timeSinceLastCommand = (now - lastCommandTime).TotalMilliseconds;
+                
+                if (timeSinceLastCommand >= COMMAND_THROTTLE_MS || double.IsNaN(lastSentSpeedPWM))
+                {
+                    SocketService.SendCommand(motorId + speedPWM);
+                    lastCommandTime = now;
+                    lastSentSpeedPWM = speedPWM;
+                    pendingSpeedPWM = null;
+                }
+                else
+                {
+                    pendingSpeedPWM = speedPWM;
+                    
+                    if (throttleTimer == null)
+                    {
+                        throttleTimer = new System.Threading.Timer(
+                            SendPendingCommand, 
+                            null, 
+                            COMMAND_THROTTLE_MS, 
+                            System.Threading.Timeout.Infinite);
+                    }
+                }
+            }
+        }
+
+        private void SendPendingCommand(object state)
+        {
+            lock (lockObject)
+            {
+                if (pendingSpeedPWM.HasValue)
+                {
+                    SocketService.SendCommand(motorId + pendingSpeedPWM.Value);
+                    lastCommandTime = DateTime.UtcNow;
+                    lastSentSpeedPWM = pendingSpeedPWM.Value;
+                    pendingSpeedPWM = null;
+                }
+                throttleTimer?.Dispose();
+                throttleTimer = null;
+            }
         }
 
         public double GetSpeed()

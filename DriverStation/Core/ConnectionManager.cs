@@ -67,8 +67,7 @@ namespace CustomDriverStation.Core
         /// </summary>
         private static void SendStopCommands()
         {
-            var robot = Robot.GetRobot();
-            var allMotors = robot.GetAllMotors();
+            var allMotors = Robot.GetAllMotors();
             foreach (var motor in allMotors.Values)
             {
                 SendCommandInternal($"{motor.MotorId}0");
